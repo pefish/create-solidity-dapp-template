@@ -4,8 +4,8 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@pefish/js-coin-eth": "^0.6.1",
-    "@pefish/js-node-assist": "^1.0.0"
+    "@pefish/js-coin-eth": "^1.0.0",
+    "@pefish/js-node-assist": "^2.0.4"
   },
   "devDependencies": {
     "@truffle/hdwallet-provider": "^1.1.0",
