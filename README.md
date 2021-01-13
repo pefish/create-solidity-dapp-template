@@ -15,7 +15,7 @@
 
 ## 测试
 
-* truffle test
+* yarn test
 
 ## 发布测试网
 
