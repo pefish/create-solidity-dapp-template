@@ -1,5 +1,4 @@
 import { TestInstance } from "../types/truffle-contracts";
-import { EthWallet } from "@pefish/js-coin-eth"
 
 const Test = artifacts.require("Test.sol");
 

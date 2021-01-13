@@ -4,8 +4,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@pefish/js-coin-eth": "^1.0.0",
-    "@pefish/js-node-assist": "^2.0.4"
+    "@pefish/js-node-assist": "^2.0.8"
   },
   "devDependencies": {
     "@truffle/hdwallet-provider": "^1.1.0",
@@ -15,7 +14,6 @@
     "@types/node": "^14.11.2",
     "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0",
-    "truffle": "^5.1.46",
     "truffle-typings": "^1.0.8",
     "ts-generator": "^0.0.8",
     "ts-node": "^9.0.0",

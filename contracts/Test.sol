@@ -1,18 +1,13 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.22 <0.8.0;
-pragma experimental ABIEncoderV2;
+pragma solidity ^0.8.0;
 
-import "./util/caller/Callable.sol";
-import "./util/math/SafeMath.sol";
-
-contract Test is Callable {
-  using SafeMath for uint256;
+contract Test {
 
   event StoreWords(string words);
 
   string private words;
 
-  function storeWords(string memory words_) onlyCaller public payable {
+  function storeWords(string memory words_) public payable {
     words = words_;
     emit StoreWords(words);
   }
