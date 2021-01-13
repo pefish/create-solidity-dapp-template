@@ -20,8 +20,9 @@
   },
   "homepage": "https://github.com/pefish/create-solidity-dapp-template.git",
   "scripts": {
-    "build": "truffle compile && typechain --target truffle './build/**/*.json' && tsc",
-    "test": "truffle test",
+    "build": "truffle compile && yarn build-ts",
+    "build-ts": "typechain --target truffle './build/**/*.json' && tsc",
+    "test": "yarn build-ts && truffle test",
     "postinstall": "patch-package"
   },
   "dependencies": {
