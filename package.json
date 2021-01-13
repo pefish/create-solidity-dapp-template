@@ -1,4 +1,24 @@
 {
+  "name": "create-solidity-dapp-template",
+  "description": "Solidity dapp template",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pefish/create-solidity-dapp-template.git"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts",
+    "security"
+  ],
+  "author": "Pefish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pefish/create-solidity-dapp-template/issues"
+  },
+  "homepage": "https://github.com/pefish/create-solidity-dapp-template.git",
   "scripts": {
     "build": "truffle compile && typechain --target truffle './build/**/*.json' && tsc",
     "postinstall": "patch-package"
