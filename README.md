@@ -11,7 +11,7 @@
 
 ## 构建
 
-* yarn build (合约每次变动都需要执行)
+* yarn build
 
 ## 测试
 
