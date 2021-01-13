@@ -9,19 +9,18 @@
 
 * yarn global add truffle
 
-## 本地测试
+## 构建
 
-* yarn
 * yarn build (合约每次变动都需要执行)
-* 开始测试
-   * truffle develop 或者 ganache + truffle console
-   * migrate
-   * test
+
+## 测试
+
+* truffle test
 
 ## 发布测试网
 
 * INFURA_KEY=** PRIVATE_KEY=** truffle migrate --network=ropsten  // 部署测试环境
 
-## 发布上线主网
+## 发布主网
 
 * INFURA_KEY=** PRIVATE_KEY=** truffle migrate --network=mainnet

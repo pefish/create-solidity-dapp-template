@@ -8,10 +8,17 @@ module.exports = {
   contracts_build_directory: "./build/contracts",
   test_file_extension_regexp: /.*\.ts$/,
   networks: {
-    development: {
-     host: "127.0.0.1",     // Localhost (default: none)
-     port: 7545,            // Standard Ethereum port (default: none)
-     network_id: "*",       // Any network (default: none)
+    develop: {  // truffle develop 启动的本地网络的配置
+      port: 8545,
+      network_id: 20,
+      accounts: 5,
+      defaultEtherBalance: 500,
+      blockTime: 3
+    },
+    ganache: {
+      host: "127.0.0.1",
+      port: 7545,
+      network_id: 21,
     },
     ropsten: {
       provider: () => new HDWalletProvider(process.env.PRIVATE_KEY, `https://ropsten.infura.io/v3/${process.env.INFURA_KEY}`),
@@ -53,11 +60,11 @@ module.exports = {
       docker: false,        // Use "0.5.1" you've installed locally with docker (default: false)
       parser: "solcjs",
       settings: {          // See the solidity docs for advice about optimization and evmVersion
-       optimizer: {
-         enabled: false,
-         runs: 200
-       },
-       evmVersion: "istanbul"
+        optimizer: {
+          enabled: false,
+          runs: 200
+        },
+        evmVersion: "istanbul"
       }
     },
   },
