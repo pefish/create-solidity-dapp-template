@@ -5,21 +5,19 @@ const Test = artifacts.require("Test");
 contract('Test', (accounts) => {
   let testInstance: TestInstance
 
-  before(async function () {
+  beforeEach(async function () {
     testInstance = await Test.new();
   });
 
 
-  it('storeWords', async () => {
+  it('storeWords getWords', async () => {
     const result = await testInstance.storeWords("Hello World!!!")
     // console.log(result)
     assert.equal(!!result.tx, true, "storeWords error");
-  });
 
-  it('getWords', async () => {
-    const result = await testInstance.getWords()
+    const result1 = await testInstance.getWords()
     // console.log(result)
-    assert.equal(result, "Hello World!!!", "getWords error");
+    assert.equal(result1, "Hello World!!!", "getWords error");
   });
 
 });
