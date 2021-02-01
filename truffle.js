@@ -21,8 +21,8 @@ module.exports = {
       network_id: 21,
     },
     ropsten: {
-      provider: () => new HDWalletProvider(process.env.PRIVATE_KEY, `https://ropsten.infura.io/v3/${process.env.INFURA_KEY}`),
-      network_id: 3,
+      provider: () => new HDWalletProvider(process.env.PKEY, process.env.URL || `https://ropsten.infura.io/v3/${process.env.INFURA_KEY}`),
+      network_id: process.env.NETWOK_ID || 3,
       gasPrice: 2000000000,
       gas: 5500000,
       confirmations: 1,
@@ -32,8 +32,9 @@ module.exports = {
       // from: "",  // migrate 时使用的账户，默认会使用第一个
     },
     mainnet: {
-      provider: () => new HDWalletProvider(process.env.PRIVATE_KEY, `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`),
-      network_id: 0,
+      provider: () => new HDWalletProvider(process.env.PKEY, process.env.URL || `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`),
+      network_id: process.env.NETWOK_ID || 0,
+      gasPrice: 1000000000,
       gas: 5500000,
       confirmations: 1,
       timeoutBlocks: 200,
@@ -49,17 +50,16 @@ module.exports = {
 
   // Set default mocha options here, use special reporters etc.
   mocha: {
-    // timeout: 100000
+    timeout: 100000,
     useColors: true
   },
 
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.0",    // Fetch exact version from solc-bin (default: truffle's version)
-      docker: false,        // Use "0.5.1" you've installed locally with docker (default: false)
+      version: "0.8.0",
       parser: "solcjs",
-      settings: {          // See the solidity docs for advice about optimization and evmVersion
+      settings: {
         optimizer: {
           enabled: false,
           runs: 200
