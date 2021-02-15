@@ -1,6 +1,11 @@
+const { StringUtil } = require('@pefish/js-node-assist');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 require("ts-node/register");
+
+if (!process.env.PKEY) {
+  throw(new Error("no PKEY!!!"))
+}
 
 module.exports = {
   migrations_directory: "./migrations",
@@ -20,10 +25,10 @@ module.exports = {
       port: 7545,
       network_id: 21,
     },
-    ropsten: {
+    testnet: {
       provider: () => new HDWalletProvider(process.env.PKEY, process.env.URL || `https://ropsten.infura.io/v3/${process.env.INFURA_KEY}`),
       network_id: process.env.NETWOK_ID || 3,
-      gasPrice: 2000000000,
+      gasPrice: 1000000000,
       gas: 5500000,
       confirmations: 1,
       timeoutBlocks: 200,
@@ -33,8 +38,8 @@ module.exports = {
     },
     mainnet: {
       provider: () => new HDWalletProvider(process.env.PKEY, process.env.URL || `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`),
-      network_id: process.env.NETWOK_ID || 0,
-      gasPrice: 1000000000,
+      network_id: process.env.NETWORK_ID || 0,
+      gasPrice: StringUtil.start(process.env.GAS_PRICE).shiftedBy(9).toNumber() || 1000000000,
       gas: 5500000,
       confirmations: 1,
       timeoutBlocks: 200,

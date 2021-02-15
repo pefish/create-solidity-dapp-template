@@ -13,11 +13,11 @@
 
 ## 发布测试网
 
-* URL=** PKEY=** truffle migrate --network=ropsten  // 部署测试环境
+* URL=** PKEY=** yarn deploy-testnet  // 部署测试环境
 
 ## 发布上线主网
 
-* URL=** PKEY=** NETWOK_ID=0 truffle migrate --network=mainnet
+* URL=** PKEY=** NETWORK_ID=0 GAS_PRICE=2 yarn deploy
 
 ## 验证源码
 
