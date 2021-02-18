@@ -3,16 +3,16 @@ pragma solidity ^0.8.0;
 
 contract Test {
 
-  event StoreWords(string words);
+  event StoreWords(uint256 words);
 
-  string private words;
+  uint256 private words;
 
-  function storeWords(string memory words_) public payable {
+  function storeWords(uint256 words_) public payable {
     words = words_;
     emit StoreWords(words);
   }
 
-  function getWords() public view returns (string memory) {
+  function getWords() public view returns (uint256) {
     return words;
   }
 }

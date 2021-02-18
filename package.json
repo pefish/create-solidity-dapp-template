@@ -31,7 +31,8 @@
     "deploy": "yarn build && truffle migrate --network=mainnet"
   },
   "dependencies": {
-    "@pefish/js-node-assist": "^2.0.8"
+    "@pefish/js-node-assist": "^2.0.8",
+    "@pefish/solidity-lib": "^0.0.5"
   },
   "devDependencies": {
     "@truffle/hdwallet-provider": "^1.1.0",

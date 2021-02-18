@@ -1,33 +1,27 @@
-import { TestInstance } from "../types/truffle-contracts";
+import { TestInstance, ProxyInstance } from "../types/truffle-contracts";
 import Web3 from "web3"
 
 declare var web3: Web3;
 
+const Proxy = artifacts.require("Proxy");
 const Test = artifacts.require("Test");
 
 contract('Test', (accounts) => {
-  let testInstance: TestInstance
+  let proxyInstance: ProxyInstance
 
   beforeEach(async function () {
-    testInstance = await Test.new();
+    const testInstance = await Test.new();
+    proxyInstance = await Proxy.new(testInstance.address)
   });
 
 
   it('storeWords getWords', async () => {
-    const result = await testInstance.storeWords("Hello World!!!")
-    // console.log(result)
-    assert.equal(!!result.tx, true, "storeWords error");
-    const result1 = await testInstance.getWords()
-    // console.log(result)
-    assert.equal(result1, "Hello World!!!", "getWords error");
-
-
-    let testContract = new web3.eth.Contract(Test.abi, testInstance.address)
-    await testContract.methods["storeWords"]("haha").send({
+    let testContract = new web3.eth.Contract(Test.abi, proxyInstance.address)
+    await testContract.methods["storeWords"](123).send({
       from: accounts[0],
     })
     const result2 = await testContract.methods["getWords"]().call()
-    assert.equal(result2, "haha", "getWords error");
+    assert.equal(result2, 123, "getWords error");
   });
 
 });
