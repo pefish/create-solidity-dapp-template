@@ -3,10 +3,6 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 require("ts-node/register");
 
-if (!process.env.PKEY) {
-  throw(new Error("no PKEY!!!"))
-}
-
 module.exports = {
   migrations_directory: "./migrations",
   contracts_directory: "./contracts",
@@ -39,7 +35,7 @@ module.exports = {
     mainnet: {
       provider: () => new HDWalletProvider(process.env.PKEY, process.env.URL || `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`),
       network_id: process.env.NETWORK_ID || 0,
-      gasPrice: StringUtil.start(process.env.GAS_PRICE).shiftedBy(9).toNumber() || 1000000000,
+      gasPrice: StringUtil.start(process.env.GAS_PRICE || "1").shiftedBy(9).toNumber(),
       gas: 5500000,
       confirmations: 1,
       timeoutBlocks: 200,
