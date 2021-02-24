@@ -3,20 +3,6 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 require("ts-node/register");
 
-const mainnetConfig = {
-  provider: () => new HDWalletProvider(process.env.PKEY, process.env.URL || `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`),
-  network_id: process.env.NETWORK_ID || 1,
-  gas: 5500000,
-  confirmations: 1,
-  timeoutBlocks: 200,
-  skipDryRun: true
-}
-
-const gasPrice = process.env.GAS_PRICE
-if (gasPrice) {
-  mainnetConfig.gasPrice = StringUtil.start(process.env.GAS_PRICE).shiftedBy(9).toNumber()
-}
-
 module.exports = {
   migrations_directory: "./migrations",
   contracts_directory: "./contracts",
@@ -46,7 +32,15 @@ module.exports = {
       websockets: false,
       // from: "",  // migrate 时使用的账户，默认会使用第一个
     },
-    mainnet: mainnetConfig,
+    mainnet: {
+      provider: () => new HDWalletProvider(process.env.PKEY, process.env.URL || `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`),
+      network_id: process.env.NETWORK_ID || 1,
+      gas: 5500000,
+      gasPrice: StringUtil.start(process.env.GAS_PRICE || 1).shiftedBy(9).toNumber(),
+      confirmations: 1,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
   },
 
   sourceFetchers: ["sourcify", "etherscan"],
