@@ -11,8 +11,8 @@ module.exports = async function (deployer) {
   // await deployer.deploy(Proxy, Test.address);
 
   // 更新实现者
-  const newImplement = "0x1582a26Ac1D78493F621091D661dAB870CC9B93e"
-  let proxyContract = new web3.eth.Contract(Proxy.abi, newImplement)
+  const proxyAddress = "0x1582a26Ac1D78493F621091D661dAB870CC9B93e"
+  let proxyContract = new web3.eth.Contract(Proxy.abi, proxyAddress)
   const owner = await proxyContract.methods["owner"]().call()
   await proxyContract.methods["upgradeTo"](Test.address).send({
     from: owner,
