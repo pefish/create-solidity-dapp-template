@@ -26,7 +26,7 @@
     "build-ts-migration": "tsc",
     "test": "yarn build && truffle test",
     "postinstall": "patch-package",
-    "flatten": "truffle-flattener contracts/Index.sol > contracts/IndexFull.sol",
+    "flatten": "truffle-flattener contracts/Index.sol > flatten/IndexFull.sol",
     "deploy-testnet": "yarn build && truffle migrate --network=testnet",
     "deploy": "yarn build && truffle migrate --network=mainnet"
   },
