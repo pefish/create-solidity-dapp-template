@@ -31,7 +31,7 @@ contract('Proxy', (accounts) => {
   it('getWords', async () => {
     let upgradeabilityProxyContract = new web3.eth.Contract(Test.abi, upgradeabilityProxyInstance.address)
 
-    await upgradeabilityProxyContract.methods["initialize"](123).send({
+    await upgradeabilityProxyContract.methods["init"](123).send({
       from: accounts[0],
     })
 

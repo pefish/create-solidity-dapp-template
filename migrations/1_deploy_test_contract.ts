@@ -10,13 +10,20 @@ module.exports = async function (deployer) {
   // 发布 Proxy 并设置实现者
   await deployer.deploy(Proxy, Test.address);
 
+  const proxyAddress = Proxy.address
+  let proxyContract = new web3.eth.Contract(Proxy.abi, proxyAddress)
+  const owner = await proxyContract.methods["owner"]().call()
+
   // 更新实现者
-  // const proxyAddress = "0x1582a26Ac1D78493F621091D661dAB870CC9B93e"
-  // let proxyContract = new web3.eth.Contract(Proxy.abi, proxyAddress)
-  // const owner = await proxyContract.methods["owner"]().call()
   // await proxyContract.methods["upgradeTo"](Test.address).send({
   //   from: owner,
   // })
+
+  // 初始化
+  let proxyContract1 = new web3.eth.Contract(Test.abi, proxyAddress)
+  await proxyContract1.methods["init"](123).send({
+    from: owner,
+  })
 } as Truffle.Migration;
 
 export {};

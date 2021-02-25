@@ -6,7 +6,7 @@ contract Test {
 
     uint256 private words;
 
-    function initialize(uint256 _words) external {
+    function init(uint256 _words) external {
         words = _words;
     }
 
