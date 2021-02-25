@@ -1,4 +1,4 @@
-import { TestInstance, ProxyInstance } from "../types/truffle-contracts";
+import { ProxyInstance } from "../types/truffle-contracts";
 import Web3 from "web3"
 
 declare var web3: Web3;
