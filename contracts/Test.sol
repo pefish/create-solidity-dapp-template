@@ -6,7 +6,7 @@ contract Test {
 
     uint256 private words;
 
-    function init(uint256 _words) external {
+    function init(uint256 _words) external {  // 用来初始化数据（通过 proxy 调用）
         words = _words;
     }
 
