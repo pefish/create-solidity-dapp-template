@@ -8,16 +8,16 @@ module.exports = async function (deployer) {
   await deployer.deploy(Test);
 
   // 发布 Proxy 并设置实现者
-  await deployer.deploy(Proxy, Test.address);
+  await deployer.deploy(Proxy);
 
   const proxyAddress = Proxy.address
   let proxyContract = new web3.eth.Contract(Proxy.abi, proxyAddress)
   const owner = await proxyContract.methods["owner"]().call()
 
   // 更新实现者
-  // await proxyContract.methods["upgradeTo"](Test.address).send({
-  //   from: owner,
-  // })
+  await proxyContract.methods["upgradeTo"](Test.address).send({
+    from: owner,
+  })
 
   // 初始化
   let proxyContract1 = new web3.eth.Contract(Test.abi, proxyAddress)

@@ -13,7 +13,8 @@ contract('Proxy', (accounts) => {
 
   beforeEach(async function () {
     testInstance = await Test.new()
-    upgradeabilityProxyInstance = await UpgradeabilityProxy.new(testInstance.address);
+    upgradeabilityProxyInstance = await UpgradeabilityProxy.new();
+    await upgradeabilityProxyInstance["upgradeTo"](testInstance.address)
   });
 
 

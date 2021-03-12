@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@pefish/js-node-assist": "^2.0.8",
-    "@pefish/solidity-lib": "^0.0.12"
+    "@pefish/solidity-lib": "^0.0.14"
   },
   "devDependencies": {
     "@truffle/hdwallet-provider": "^1.1.0",
