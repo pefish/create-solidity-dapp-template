@@ -9,7 +9,7 @@ module.exports = {
   contracts_build_directory: "./build/contracts",
   test_file_extension_regexp: /.*\.ts$/,
   networks: {
-    develop: {  // truffle develop 启动的本地网络的配置
+    develop: {  // config of "truffle develop"
       port: 8545,
       network_id: 20,
       accounts: 5,
@@ -30,7 +30,7 @@ module.exports = {
       timeoutBlocks: 200,
       skipDryRun: true,
       websockets: false,
-      // from: "",  // migrate 时使用的账户，默认会使用第一个
+      // from: "",  // account to use when migrate, default: the first one
     },
     mainnet: {
       provider: () => new HDWalletProvider(process.env.PKEY, process.env.URL || `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`),
@@ -44,10 +44,6 @@ module.exports = {
   },
 
   sourceFetchers: ["sourcify", "etherscan"],
-
-  etherscan: {
-    apiKey: "**" // 拉取源码需要的key
-  },
 
   // Set default mocha options here, use special reporters etc.
   mocha: {

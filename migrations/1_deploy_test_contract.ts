@@ -7,19 +7,20 @@ declare var web3: Web3;
 module.exports = async function (deployer) {
   await deployer.deploy(Test);
 
-  // 发布 Proxy 并设置实现者
+  // deploy proxy
   await deployer.deploy(Proxy);
 
   const proxyAddress = Proxy.address
-  let proxyContract = new web3.eth.Contract(Proxy.abi, proxyAddress)
+  // @ts-ignore
+  let proxyContract: web3.eth.Contract = new web3.eth.Contract(Proxy.abi, proxyAddress)
   const owner = await proxyContract.methods["owner"]().call()
 
-  // 更新实现者
+  // set implement
   await proxyContract.methods["upgradeTo"](Test.address).send({
     from: owner,
   })
 
-  // 初始化
+  // init
   let proxyContract1 = new web3.eth.Contract(Test.abi, proxyAddress)
   await proxyContract1.methods["init"](123).send({
     from: owner,

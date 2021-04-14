@@ -1,12 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract Test {
+import { Initializable } from "@pefish/solidity-lib/contracts/contract/Initializable.sol";
+import { Ownable } from "@pefish/solidity-lib/contracts/contract/Ownable.sol";
+
+contract Test is Initializable, Ownable {
     event StoreWords(uint256 words);
 
     uint256 private words;
 
-    function init(uint256 _words) external {  // 用来初始化数据（通过 proxy 调用）
+    function init(uint256 _words) external initializer {  // init datas
+        Ownable.__Ownable_init();
         words = _words;
     }
 

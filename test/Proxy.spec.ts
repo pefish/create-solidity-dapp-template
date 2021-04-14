@@ -1,5 +1,4 @@
 import { ProxyInstance, TestInstance } from "../types/truffle-contracts";
-import { Contract }  from "web3-eth-contract"
 import Web3 from "web3"
 
 declare var web3: Web3;
@@ -19,7 +18,8 @@ contract('Proxy', (accounts) => {
 
 
   it('storeWords getWords', async () => {
-    let upgradeabilityProxyContract = new web3.eth.Contract(Test.abi, upgradeabilityProxyInstance.address)
+    // @ts-ignore
+    let upgradeabilityProxyContract: web3.eth.Contract = new web3.eth.Contract(Test.abi, upgradeabilityProxyInstance.address)
 
     await upgradeabilityProxyContract.methods["storeWords"](1234).send({
       from: accounts[0],

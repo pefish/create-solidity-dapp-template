@@ -1,34 +1,43 @@
 
-[Create App](https://github.com/pefish/create-app) 使用的dapp模板
+## Title
 
-* 使用Truffle框架
-* Typescript支持
-* SafeMath等常用库
+Description.
 
-## 本地测试
+## Install Dependencies
 
-* yarn
-* yarn build (合约每次变动都需要执行)
-* yarn test
+```shell
+yarn
+```
 
-## 发布测试网
+## Compile Contracts
 
-* URL=** PKEY=** yarn deploy-testnet  // 部署测试环境
+```shell
+yarn build
+```
 
-## 发布上线主网
+## Run Tests
+
+```shell
+yarn test
+```
+
+## Deploy testnet
+
+* URL=** PKEY=** yarn deploy-testnet
+
+## Deploy mainnet
 
 * URL=** PKEY=** NETWORK_ID=0 GAS_PRICE=2 yarn deploy
 
-## 验证源码
+## Verify source
 
-* yarn flatten 生成单一的 sol 文件
-* 单一文件放到 etherscan 去验证即可
+1. yarn flatten // will generate single solidity file
+2. the single solidity file can be verified by etherscan.
 
-## 说明
+## Note
 
-`patch-package` 是用于 npm 包打补丁
+`patch-package` is used to patch for npm package.
 
 1. vim node_modules/some-package/brokenFile.js
-2. patch-package some-package  // 会生成 patch 文件
-3. patch 放入版本管理，提交 git 仓库
-4. scripts 中加入 `"postinstall": "patch-package"`，使得 `yarn install` 后自动安装补丁
+2. patch-package some-package  // will generate patch file
+3. patch file need to be invoked by git version manager.
