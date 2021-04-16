@@ -14,12 +14,14 @@ module.exports = {
       network_id: 20,
       accounts: 5,
       defaultEtherBalance: 500,
-      blockTime: 3
+      blockTime: 3,
+      networkCheckTimeout: 10000,
     },
     ganache: {
       host: "127.0.0.1",
       port: 7545,
       network_id: 21,
+      networkCheckTimeout: 10000,
     },
     testnet: {
       provider: () => new HDWalletProvider(process.env.PKEY, process.env.URL || `https://ropsten.infura.io/v3/${process.env.INFURA_KEY}`),
@@ -31,6 +33,7 @@ module.exports = {
       skipDryRun: true,
       websockets: false,
       // from: "",  // account to use when migrate, default: the first one
+      networkCheckTimeout: 10000,
     },
     mainnet: {
       provider: () => new HDWalletProvider(process.env.PKEY, process.env.URL || `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`),
@@ -39,7 +42,8 @@ module.exports = {
       gasPrice: StringUtil.start(process.env.GAS_PRICE || 1).shiftedBy(9).toNumber(),
       confirmations: 1,
       timeoutBlocks: 200,
-      skipDryRun: true
+      skipDryRun: true,
+      networkCheckTimeout: 10000,
     },
   },
 
