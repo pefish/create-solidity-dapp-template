@@ -65,7 +65,15 @@ module.exports = {
           enabled: false,
           runs: 200
         },
-        evmVersion: "istanbul"
+        evmVersion: "istanbul",
+        outputSelection: {
+          "*": {
+            "*": ["*"],
+            "": [
+              "ast" // Enable the AST output of every single file.
+            ]
+          },
+        }
       }
     },
   },

@@ -20,7 +20,7 @@ module.exports = async function (deployer,network, accounts) {
 
   // init
   let proxyContract1 = new web3.eth.Contract(Test.abi, proxyAddress)
-  await proxyContract1.methods["init"](123).send({
+  await proxyContract1.methods["__Test_init"](123).send({
     from: accounts[0],
   })
 } as Truffle.Migration;

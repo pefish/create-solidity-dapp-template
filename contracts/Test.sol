@@ -9,8 +9,9 @@ contract Test is Initializable, Ownable {
 
     uint256 private words;
 
-    function init(uint256 _words) external initializer {  // init datas
+    function __Test_init(uint256 _words) external initializer {
         Ownable.__Ownable_init();
+
         words = _words;
     }
 
