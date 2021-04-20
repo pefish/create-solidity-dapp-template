@@ -66,7 +66,7 @@ module.exports = {
           runs: 200
         },
         evmVersion: "istanbul",
-        outputSelection: {
+        outputSelection: {  // not currently supported
           "*": {
             "*": ["*"],
             "": [
