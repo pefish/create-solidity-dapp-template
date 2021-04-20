@@ -62,7 +62,7 @@ module.exports = {
       parser: "solcjs",
       settings: {
         optimizer: {
-          enabled: false,
+          enabled: true,
           runs: 200
         },
         evmVersion: "istanbul",
