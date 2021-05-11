@@ -31,7 +31,7 @@ yarn test
 
 ## Verify source
 
-1. yarn flatten // will generate single solidity file
+1. yarn flatten contracts/Index.sol > flatten/Index_full.sol // will generate single solidity file
 2. the single solidity file can be verified by etherscan.
 
 ## Note

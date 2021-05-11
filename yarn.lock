@@ -1296,10 +1296,10 @@
   dependencies:
     bignumber.js "^9.0.1"
 
-"@pefish/solidity-lib@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@pefish/solidity-lib/-/solidity-lib-0.1.0.tgz#59953b404121872509e177cee1ccd77c5e6d47a3"
-  integrity sha512-jp21GXChVGum1b/jXe6cFFDa/FGf8RsFvm9rSmQiam7B2WaMepb0DR9SWvtrc4A2LxoOQx5ISzSY3n7ojW/yHA==
+"@pefish/solidity-lib@^0.1.10":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@pefish/solidity-lib/-/solidity-lib-0.1.10.tgz#05d8001b73940f69e66d5788bef36586acb027c4"
+  integrity sha512-AUuCc9jxpwjOI0eGBAvpPx+w3TZC3tEBmqGRnEu17uRfCclKBnJ/gw1x/jnjMeE2bE7issNMTZ/qf9GGV+GKhQ==
   dependencies:
     "@pefish/js-node-assist" "^2.0.8"
     patch-package "^6.2.2"

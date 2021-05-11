@@ -26,13 +26,13 @@
     "build-ts-migration": "tsc",
     "test": "yarn build && truffle test",
     "postinstall": "patch-package",
-    "flatten": "truffle-flattener contracts/Index.sol > flatten/IndexFull.sol",
+    "flatten": "truffle-flattener",
     "deploy-testnet": "yarn build && truffle migrate --network=testnet",
     "deploy": "yarn build && truffle migrate --network=mainnet"
   },
   "dependencies": {
     "@pefish/js-node-assist": "^2.0.8",
-    "@pefish/solidity-lib": "^0.1.0"
+    "@pefish/solidity-lib": "^0.1.10"
   },
   "devDependencies": {
     "@truffle/hdwallet-provider": "^1.1.0",
