@@ -1,0 +1,15 @@
+{
+  "name": "hardhat-project",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.1",
+    "hardhat": "^2.12.7"
+  },
+  "scripts": {
+    "deploy": "PKEY=** hardhat run scripts/deploy.ts"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts-upgradeable": "^4.8.2",
+    "@openzeppelin/hardhat-upgrades": "^1.22.1",
+    "@pefish/js-node-assist": "^2.0.8"
+  }
+}
