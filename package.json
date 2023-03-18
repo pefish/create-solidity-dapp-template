@@ -5,7 +5,10 @@
     "hardhat": "^2.12.7"
   },
   "scripts": {
-    "deploy": "PKEY=** hardhat run scripts/deploy.ts"
+    "deploy": "ENV=local PKEY=** hardhat run scripts/deploy.ts",
+    "flatten": "npx hardhat flatten contracts/token/Token.sol > flatten/token.sol",
+    "compile": "npx hardhat compile",
+    "test": "REPORT_GAS=true npx hardhat test"
   },
   "dependencies": {
     "@openzeppelin/contracts-upgradeable": "^4.8.2",
