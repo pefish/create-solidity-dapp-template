@@ -11,6 +11,9 @@
     "test": "REPORT_GAS=true npx hardhat test"
   },
   "dependencies": {
+    "@matterlabs/hardhat-zksync-deploy": "^0.6.3",
+    "@matterlabs/hardhat-zksync-solc": "^0.4.1",
+    "@matterlabs/hardhat-zksync-verify": "^0.2.0",
     "@openzeppelin/contracts-upgradeable": "^4.8.2",
     "@openzeppelin/hardhat-upgrades": "^1.22.1",
     "@pefish/js-node-assist": "^2.0.8"
