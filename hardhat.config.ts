@@ -6,7 +6,7 @@ import "@matterlabs/hardhat-zksync-solc";
 import "@matterlabs/hardhat-zksync-verify";
 
 const config: HardhatUserConfig = {
-  defaultNetwork: "arbitrum",
+  defaultNetwork: "ethTestnet",
   networks: {
     hardhat: {
       zksync: false,
