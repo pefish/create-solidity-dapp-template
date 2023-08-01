@@ -24,6 +24,16 @@ const config: HardhatUserConfig = {
       url: "https://goerli-rollup.arbitrum.io/rpc",
       accounts: [process.env.PKEY || "0000000000000000000000000000000000000000000000000000000000000000"],
       chainId: 421613,
+    },
+    base: {
+      url: "https://mainnet.base.org",
+      accounts: [process.env.PKEY || "0000000000000000000000000000000000000000000000000000000000000000"],
+      chainId: 8453,
+    },
+    baseTestnet: {
+      url: "https://goerli.base.org",
+      accounts: [process.env.PKEY || "0000000000000000000000000000000000000000000000000000000000000000"],
+      chainId: 84531,
     }
   },
   solidity: {

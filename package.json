@@ -6,7 +6,7 @@
     "typescript": "^5.1.6"
   },
   "scripts": {
-    "deploy": "ENV=local PKEY=** hardhat run scripts/deploy.ts",
+    "deploy": "ENV=prod PKEY=** npx hardhat run --network ethTestnet scripts/deploy.ts",
     "flatten": "npx hardhat flatten contracts/token/Token.sol > flatten/token.sol",
     "compile": "npx hardhat compile",
     "test": "REPORT_GAS=true npx hardhat test"
