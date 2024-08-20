@@ -11,9 +11,9 @@ const config: HardhatUserConfig = {
       chainId: 1,
     },
     ethTestnet: {
-      url: "https://rpc.ankr.com/eth_goerli",
+      url: "https://rpc.ankr.com/eth_sepolia",
       accounts: [process.env.PKEY || "0000000000000000000000000000000000000000000000000000000000000000"],
-      chainId: 5,
+      chainId: 11155111,
     },
     arb: {
       url: "https://arb1.arbitrum.io/rpc",
