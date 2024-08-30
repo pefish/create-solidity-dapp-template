@@ -2,14 +2,15 @@
   "name": "hardhat-project",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.1",
-    "hardhat": "^2.12.7",
+    "hardhat": "^2.22.9",
     "typescript": "^5.1.6"
   },
   "scripts": {
-    "deploy": "ENV=prod PKEY=** npx hardhat run --network ethTestnet scripts/deploy.ts",
+    "deploy": "PKEY=** npx hardhat run --network ethTestnet scripts/deploy.ts",
     "flatten": "npx hardhat flatten contracts/token/Token.sol > flatten/token.sol",
     "compile": "npx hardhat compile",
-    "test": "REPORT_GAS=true npx hardhat test"
+    "test": "REPORT_GAS=true npx hardhat test",
+    "verify": "PKEY=* API_KEY=* npx hardhat verify --network mainnet --libraries libraries.js --constructor-args arguments.js DEPLOYED_CONTRACT_ADDRESS"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.2",

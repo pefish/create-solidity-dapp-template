@@ -1,6 +1,6 @@
-import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import '@openzeppelin/hardhat-upgrades';
+import { HardhatUserConfig } from "hardhat/config";
 
 const config: HardhatUserConfig = {
   defaultNetwork: "ethTestnet",
@@ -31,9 +31,10 @@ const config: HardhatUserConfig = {
       chainId: 8453,
     },
     baseTestnet: {
-      url: "https://goerli.base.org",
+      url: "https://sepolia.base.org",
       accounts: [process.env.PKEY || "0000000000000000000000000000000000000000000000000000000000000000"],
-      chainId: 84531,
+      chainId: 84532,
+      gasPrice: 1000000000
     }
   },
   solidity: {
@@ -46,7 +47,31 @@ const config: HardhatUserConfig = {
     }
   },
   mocha: {
-    timeout: 40000
+    timeout: 40000,
+  },
+  etherscan: {
+    apiKey: {
+      baseTestnet: process.env.API_KEY || "",
+      base: process.env.API_KEY || "",
+    },
+    customChains: [
+      {
+        network: "base",
+        chainId: 8453,
+        urls: {
+          apiURL: "https://api.basescan.org/api",
+          browserURL: "https://basescan.org"
+        }
+      },
+      {
+        network: "baseTestnet",
+        chainId: 84532,
+        urls: {
+          apiURL: "https://api-sepolia.basescan.org/api",
+          browserURL: "https://sepolia.basescan.org"
+        }
+      }
+    ]
   }
 };
 
